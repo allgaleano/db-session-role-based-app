@@ -5,7 +5,7 @@ import { ArrowDownIcon, ArrowUpIcon, TrashIcon } from "@radix-ui/react-icons";
 import { ColumnDef } from "@tanstack/react-table";
 import { UsersTable } from "@/types/users-table";
 
-export const adminColumns: ColumnDef<UsersTable>[] = [
+export const AdminColumns: ColumnDef<UsersTable>[] = [
   {
     accessorKey: "username",
     header: "Username",

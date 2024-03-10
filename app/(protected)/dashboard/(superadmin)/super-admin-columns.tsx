@@ -85,12 +85,20 @@ export const SuperAdminColumns: ColumnDef<UsersTable>[] = [
     id: "actions",
     cell: ({ row }) => {
       const user = row.original;
+      const deleteUser = async () => {
+        try {
+          const response = await axios.delete(`/api/users/${user.id}`);
+          console.log(response);
+        } catch (error) {
+          console.error(error);
+        }
+      }
       return (
         <Button
           variant="outline"
           size="icon"
         >
-          <TrashIcon className="cursor-pointer text-destructive-foreground text-bold w-4 h-4"/>
+          <TrashIcon onClick={deleteUser} className="cursor-pointer text-destructive-foreground text-bold w-4 h-4"/>
         </Button>
       )
     },

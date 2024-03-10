@@ -55,9 +55,9 @@ export function DataTable<TData, TValue>({
     <div className="flex flex-col space-y-4">
       <div>
         <Input 
-          placeholder="Search for an email"
-          value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
-          onChange={(event) => table.getColumn("email")?.setFilterValue(event.target.value)}
+          placeholder="Search for a username"
+          value={(table.getColumn("username")?.getFilterValue() as string) ?? ""}
+          onChange={(event) => table.getColumn("username")?.setFilterValue(event.target.value)}
           className="max-w-sm"
         />
       </div>

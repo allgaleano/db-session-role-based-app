@@ -2,7 +2,6 @@ import { neon } from '@neondatabase/serverless';
 
 const databaseUrl = process.env.DATABASE_URL;
 
-export const dynamic = 'force-dynamic';
 
 export const updateUserRoleById = async (userId: string, role: string) => {
   if (!databaseUrl) {
@@ -72,7 +71,7 @@ export const getUserRoleByToken = async (sessionToken: string) => {
 
 
 export const createUser = async (username: string, email: string, password: string) => {
-  console.log(databaseUrl);
+  
   if (!databaseUrl) {
     console.error("DATABASE_URL is not defined.");
     return null;
