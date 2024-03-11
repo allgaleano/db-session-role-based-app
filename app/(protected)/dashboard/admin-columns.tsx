@@ -1,9 +1,10 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowDownIcon, ArrowUpIcon, TrashIcon } from "@radix-ui/react-icons";
+import { ArrowDownIcon, ArrowUpIcon, DotsHorizontalIcon, TrashIcon } from "@radix-ui/react-icons";
 import { ColumnDef } from "@tanstack/react-table";
 import { UsersTable } from "@/types/users-table";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 export const AdminColumns: ColumnDef<UsersTable>[] = [
   {
@@ -52,5 +53,25 @@ export const AdminColumns: ColumnDef<UsersTable>[] = [
         </div>
       )
     }
+  },
+  {
+    id: "actions",
+    cell: ({ row }) => {
+      const user = row.original;
+      return (
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button
+              variant="link"
+              size="icon"
+            >
+              <DotsHorizontalIcon className="w-4 h-4"/>
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      )
+    },
   },
 ]
